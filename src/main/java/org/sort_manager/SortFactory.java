@@ -5,7 +5,7 @@ import org.sort_manager.sort_methods.binary_tree.BinaryTree;
 import org.sort_manager.sort_methods.bubble_sort.BubbleSortIntArray;
 
 public class SortFactory {
-    public SortMethod getSorter(String sortType, Integer[] arrayToSort) {
+    public static SortMethod getSorter(String sortType, Integer[] arrayToSort) {
         return switch (sortType) {
             case "bubble" -> new BubbleSortIntArray(arrayToSort);
             case "tree" -> new BinaryTree(arrayToSort);

@@ -5,7 +5,7 @@ public abstract class SortMethod {
     Integer[] unsortedArray;
 
     public SortMethod(Integer[] unsortedArray) {
-        this.unsortedArray= unsortedArray;
+        this.unsortedArray = unsortedArray;
     }
 
     public abstract Integer[] getSortedArray();
