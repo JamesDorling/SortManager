@@ -4,13 +4,13 @@ import org.sort_manager.sort_methods.SortMethod;
 
 import java.util.Arrays;
 
-public class BubbleSortIntArray extends SortMethod {
+public class BubbleSorter extends SortMethod {
     // BASE TAKEN FROM MY JAVA_PLAYGROUND CODE.
     int iterations = 0;
     long time_taken;
     Integer[] sorted_list;
 
-    public BubbleSortIntArray(Integer[] listToSort)
+    public BubbleSorter(Integer[] listToSort)
     {
         super(listToSort);
         long start = System.currentTimeMillis();
