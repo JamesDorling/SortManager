@@ -5,6 +5,8 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.*;
 import org.sort_manager.sort_methods.binary_tree.BinaryTree;
 import org.sort_manager.sort_methods.bubble_sort.BubbleSorter;
+import org.sort_manager.sort_methods.insertion_sort.InsertionSorter;
+import org.sort_manager.sort_methods.merge_sort.MergeSorter;
 
 import java.util.stream.Stream;
 
@@ -22,7 +24,8 @@ public class SortFactoryTests {
         return Stream.of(
                 Arguments.arguments("bubble", new Integer[]{3, 2}, BubbleSorter.class),
                 Arguments.arguments("tree", new Integer[]{3, 2}, BinaryTree.class),
-                Arguments.arguments("bubble", new Integer[]{3, 2}, BubbleSorter.class)
+                Arguments.arguments("merge", new Integer[]{3, 2}, MergeSorter.class),
+                Arguments.arguments("insertion", new Integer[]{3, 2}, InsertionSorter.class)
         );
     }
 
