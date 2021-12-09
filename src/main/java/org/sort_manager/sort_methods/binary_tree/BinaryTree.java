@@ -1,13 +1,19 @@
 package org.sort_manager.sort_methods.binary_tree;
 
+import org.sort_manager.sort_methods.SortMethod;
+
 import java.util.ArrayList;
 
 public class BinaryTree implements BinaryTreeI {
     Node root;
+    int iterations;
+    long timeTaken;
 
     //Two constructors. Either setting a root node or setting it to null.
     public BinaryTree(int rootValue)
     {
+        iterations = 0;
+        timeTaken = 0;
         root = new Node(rootValue);
     }
     //Constructor two, so that a starting node is not necessary.
