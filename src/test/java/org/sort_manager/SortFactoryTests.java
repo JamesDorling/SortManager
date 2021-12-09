@@ -3,9 +3,8 @@ package org.sort_manager;
 import org.junit.jupiter.api.*;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.*;
-import org.sort_manager.sort_methods.SortMethod;
 import org.sort_manager.sort_methods.binary_tree.BinaryTree;
-import org.sort_manager.sort_methods.bubble_sort.BubbleSortIntArray;
+import org.sort_manager.sort_methods.bubble_sort.BubbleSorter;
 
 import java.util.stream.Stream;
 
@@ -21,9 +20,9 @@ public class SortFactoryTests {
 
     public static Stream<Arguments> sortCheckerArguments() {
         return Stream.of(
-                Arguments.arguments("bubble", new Integer[]{3, 2}, BubbleSortIntArray.class),
+                Arguments.arguments("bubble", new Integer[]{3, 2}, BubbleSorter.class),
                 Arguments.arguments("tree", new Integer[]{3, 2}, BinaryTree.class),
-                Arguments.arguments("bubble", new Integer[]{3, 2}, BubbleSortIntArray.class)
+                Arguments.arguments("bubble", new Integer[]{3, 2}, BubbleSorter.class)
         );
     }
 
