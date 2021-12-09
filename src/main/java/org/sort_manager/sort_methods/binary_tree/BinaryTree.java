@@ -2,6 +2,8 @@ package org.sort_manager.sort_methods.binary_tree;
 
 import org.sort_manager.sort_methods.SortMethod;
 
+import java.time.LocalDate;
+import java.time.LocalTime;
 import java.util.ArrayList;
 
 public class BinaryTree extends SortMethod implements BinaryTreeI {
@@ -27,14 +29,18 @@ public class BinaryTree extends SortMethod implements BinaryTreeI {
     //Constructor three, so that a list of inputs can be entered immediately.
     public BinaryTree(Integer[] ListToSort)
     {
+
         super(ListToSort);
+        long start = System.currentTimeMillis();
         root = null;
         add(ListToSort);
+        //Sorting happens automatically during "add" and therefore by timing this I will get the time taken to sort.
+        timeTaken = System.currentTimeMillis() - start;
     }
 
     @Override
     public Integer[] getSortedArray() {
-        return new Integer[0];
+        return getSortedTreeAsc();
     }
 
     @Override

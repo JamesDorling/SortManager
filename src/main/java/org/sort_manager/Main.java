@@ -8,6 +8,6 @@ public class Main
 {
     public static void main( String[] args )
     {
-        System.out.println(Arrays.toString(SortFactory.getSorter("bubble", new Integer[]{5, 4, 2, 6, 7, 1, 2, 7}).getUnsortedArray()));
+        System.out.println(Arrays.toString(SortFactory.getSorter("tree", new Integer[]{5, 4, 2, 6, 7, 1, 2, 7}).getSortedArray()));
     }
 }

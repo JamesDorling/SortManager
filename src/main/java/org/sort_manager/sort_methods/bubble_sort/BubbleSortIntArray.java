@@ -2,10 +2,12 @@ package org.sort_manager.sort_methods.bubble_sort;
 
 import org.sort_manager.sort_methods.SortMethod;
 
+import java.util.Arrays;
+
 public class BubbleSortIntArray extends SortMethod {
     // BASE TAKEN FROM MY JAVA_PLAYGROUND CODE.
     int iterations = 0;
-    long time_taken = 0;
+    long time_taken;
     Integer[] sorted_list;
 
     public BubbleSortIntArray(Integer[] listToSort)
@@ -38,6 +40,7 @@ public class BubbleSortIntArray extends SortMethod {
                     listToSort[i+1] = temp;
                     //Change has been made so the list is not yet sorted
                     sorted = false;
+                    System.out.println(Arrays.toString(getUnsortedArray()));
                 }
             }
         }

@@ -1,16 +1,19 @@
 package org.sort_manager.sort_methods;
 
+import java.util.Arrays;
+
 public abstract class SortMethod {
 
-    Integer[] unsortedArray;
+    static Integer[] unsortedArray;
 
-    public SortMethod(Integer[] unsortedArray) {
-        this.unsortedArray = unsortedArray;
+    public SortMethod(Integer[] arrayToSort) {
+        unsortedArray = arrayToSort;
+        System.out.println(Arrays.toString(unsortedArray));
     }
 
     public abstract Integer[] getSortedArray();
 
-    public Integer[] getUnsortedArray() {
+    public static Integer[] getUnsortedArray() {
         return unsortedArray;
     }
 
