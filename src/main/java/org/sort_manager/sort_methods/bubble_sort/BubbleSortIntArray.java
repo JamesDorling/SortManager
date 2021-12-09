@@ -1,27 +1,35 @@
 package org.sort_manager.sort_methods.bubble_sort;
 
-public class BubbleSortIntArray{
-    //TAKEN FROM MY JAVA_PLAYGROUND CODE.
+import org.sort_manager.sort_methods.SortMethod;
+
+public class BubbleSortIntArray extends SortMethod {
+    // BASE TAKEN FROM MY JAVA_PLAYGROUND CODE.
     int iterations = 0;
-    int swaps = 0;
     long time_taken = 0;
     Integer[] sorted_list;
 
     public BubbleSortIntArray(Integer[] listToSort)
     {
+        super(listToSort);
         long start = System.currentTimeMillis();
+        //Set the sorted list to the sorted listToSort
+        sorted_list = sortArray(listToSort);
+        //Set the time taken
+        time_taken = System.currentTimeMillis() - start;
+    }
+
+    private Integer[] sortArray(Integer[] listToSort) {
         //A bubble sort algorithm. Will constantly set sorted between true and false until no more changes need to be made.
         boolean sorted = false;
         while (!sorted)
         {
-            iterations += 1;
             sorted = true;
             for(int i = 0; i < listToSort.length-1; i++)
             {
+                iterations += 1;
                 //If the selected word is longer than the next one
                 if (listToSort[i] > listToSort[i+1])
                 {
-                    swaps += 1;
                     //Save the selected string temporarily
                     Integer temp = listToSort[i];
                     //Move the next string back by one
@@ -33,24 +41,20 @@ public class BubbleSortIntArray{
                 }
             }
         }
-        //Set the sorted list
-        sorted_list = listToSort;
-        //Set the time taken
-        time_taken = System.currentTimeMillis() - start;
+        return listToSort;
     }
 
-    public Integer[] getArray() {
+    @Override
+    public Integer[] getSortedArray() {
         return sorted_list;
     }
 
+    @Override
     public int getIterations() {
         return iterations;
     }
 
-    public int getSwaps() {
-        return swaps;
-    }
-
+    @Override
     public long getTimeTaken() {
         return time_taken;
     }
