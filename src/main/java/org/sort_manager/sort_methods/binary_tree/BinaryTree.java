@@ -4,14 +4,15 @@ import org.sort_manager.sort_methods.SortMethod;
 
 import java.util.ArrayList;
 
-public class BinaryTree implements BinaryTreeI {
+public class BinaryTree extends SortMethod implements BinaryTreeI {
     Node root;
-    int iterations;
+    Integer iterations;
     long timeTaken;
 
     //Two constructors. Either setting a root node or setting it to null.
-    public BinaryTree(int rootValue)
+    public BinaryTree(Integer rootValue)
     {
+        super(new Integer[]{rootValue});
         iterations = 0;
         timeTaken = 0;
         root = new Node(rootValue);
@@ -19,25 +20,49 @@ public class BinaryTree implements BinaryTreeI {
     //Constructor two, so that a starting node is not necessary.
     public BinaryTree()
     {
+        super(new Integer[0]);
         root = null;
+    }
+
+    //Constructor three, so that a list of inputs can be entered immediately.
+    public BinaryTree(Integer[] ListToSort)
+    {
+        super(ListToSort);
+        root = null;
+        add(ListToSort);
+    }
+
+    @Override
+    public Integer[] getSortedArray() {
+        return new Integer[0];
+    }
+
+    @Override
+    public int getIterations() {
+        return 0;
+    }
+
+    @Override
+    public long getTimeTaken() {
+        return 0;
     }
 
     //Add function, triggers the recursive add function on the root.
     @Override
-    public void add(int value) {
+    public void add(Integer value) {
         root = addNodeRecursive(root, value);
     }
 
     @Override
-    public void add(final int[] valueArray) {
-        for (int j : valueArray) {
+    public void add(final Integer[] valueArray) {
+        for (Integer j : valueArray) {
             //Iterate through the array and add each value.
             this.add(j);
         }
     }
 
     //Recursive node addition. Will loop from node until it finds the perfect spot that is null.
-    private Node addNodeRecursive(Node currentNode, int addedValue)
+    private Node addNodeRecursive(Node currentNode, Integer addedValue)
     {
         //If the current node is a null, then make a new node with the value.
         if(currentNode == null) {
@@ -61,12 +86,12 @@ public class BinaryTree implements BinaryTreeI {
     }
 
     @Override
-    public int getNumberOfElements() {
+    public Integer getNumberOfElements() {
         //Return the number of elements
         return countElements(this.root);
     }
 
-    private int countElements(Node rootNode) {
+    private Integer countElements(Node rootNode) {
         //If no root then no elements.
         if(rootNode == null) {
             return 0;
@@ -80,7 +105,7 @@ public class BinaryTree implements BinaryTreeI {
     }
 
     @Override
-    public Node findElement(int value) {
+    public Node findElement(Integer value) {
         return BinaryTreeSearch.binaryTreeSearch(this.root, value);
     }
 
@@ -94,13 +119,13 @@ public class BinaryTree implements BinaryTreeI {
         return element.right;
     }
 
-    @Override //Getter for the tree's elements. I wanted to return this as an array of ints rather than an arraylist.
-    public int[] getSortedTreeAsc() {
+    @Override //Getter for the tree's elements. I wanted to return this as an array of Integers rather than an arraylist.
+    public Integer[] getSortedTreeAsc() {
         //Grab an arraylist of the nodes
         ArrayList<Integer> nodeList = getNodeList(root);
         //Grab an arraylist of the nodes
-        int[] result = new int[nodeList.size()];
-        //transform the arraylist into an array of ints.
+        Integer[] result = new Integer[nodeList.size()];
+        //transform the arraylist into an array of Integers.
         for (int i = 0; i < result.length; i++) {
             result[i] = nodeList.get(i);
         }
@@ -108,13 +133,13 @@ public class BinaryTree implements BinaryTreeI {
     }
 
     //USE ARRAY FLIPPER?
-    @Override //Getter for the tree's elements backwards. I wanted to return this as an array of ints rather than an arraylist.
-    public int[] getSortedTreeDesc() {
+    @Override //Getter for the tree's elements backwards. I wanted to return this as an array of Integers rather than an arraylist.
+    public Integer[] getSortedTreeDesc() {
         //Grab an arraylist of the nodes
         ArrayList<Integer> nodeList = getNodeList(root);
         //Grab an arraylist of the nodes
-        int[] result = new int[nodeList.size()];
-        //transform the arraylist into an array of ints, but do it backwards.
+        Integer[] result = new Integer[nodeList.size()];
+        //transform the arraylist into an array of Integers, but do it backwards.
         for (int i = 0; i < nodeList.size(); i++) {
             result[i] = nodeList.get((result.length - 1) - i);
         }

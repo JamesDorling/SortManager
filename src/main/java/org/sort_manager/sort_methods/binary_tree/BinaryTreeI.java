@@ -3,19 +3,19 @@ package org.sort_manager.sort_methods.binary_tree;
 public interface BinaryTreeI {
     Node getRootElement();
 
-    int getNumberOfElements();
+    Integer getNumberOfElements();
 
-    void add(int value);
+    void add(Integer value);
 
-    void add(final int[] valueArray);
+    void add(final Integer[] valueArray);
 
-    Node findElement(int value);
+    Node findElement(Integer value);
 
     Node getLeftChild(Node element);// throws ChildNotFoundException;
 
     Node getRightChild(Node element);// throws ChildNotFoundException;
 
-    int[] getSortedTreeAsc();
+    Integer[] getSortedTreeAsc();
 
-    int[] getSortedTreeDesc();
+    Integer[] getSortedTreeDesc();
 }
