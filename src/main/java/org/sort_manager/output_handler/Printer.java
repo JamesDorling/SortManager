@@ -11,6 +11,7 @@ public class Printer {
     }
 
     public static void printSortedArrayAndUnsortedArray(SortMethod sorter) {
+        printMessage(sorter.getSorterName());
         printMessage("Unsorted: " + Arrays.toString(sorter.getUnsortedArray()));
         printMessage("Sorted: " + Arrays.toString(sorter.getSortedArray()));
     }
