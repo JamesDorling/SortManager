@@ -124,11 +124,11 @@ public class BinaryTree extends SortMethod implements BinaryTreeI {
         return result;
     }
 
-    //USE ARRAY FLIPPER?
     @Override //Getter for the tree's elements backwards. I wanted to return this as an array of Integers rather than an arraylist.
     public Integer[] getSortedTreeDesc() {
         //Grab an arraylist of the nodes
         ArrayList<Integer> nodeList = getNodeList(root);
+
         //Grab an arraylist of the nodes
         Integer[] result = new Integer[nodeList.size()];
         //transform the arraylist into an array of Integers, but do it backwards.

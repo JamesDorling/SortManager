@@ -7,7 +7,6 @@ import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 
 public class BinaryTreeTests {
     private BinaryTree tree1;
-    private BinaryTree tree2;
 
 
     @BeforeAll
@@ -26,14 +25,9 @@ public class BinaryTreeTests {
 
     @Test
     public void binaryTreeAddTest() {
-
         //Tests to make sure it adds the nodes in the correct places.
-
-        //assertEquals(3, tree1.root.left.right.value);
-        //assertEquals(6, tree1.root.right.left.value);
-        //assertEquals(7, tree2.root.right.right.left.left.value);
-        //assertEquals(2, tree2.root.left.left.value);
-        //assertEquals(9, tree2.root.right.right.left.value);
+        tree1.add(new Integer[]{4, 7, 10, 100, 3, 76, 34, 5});
+        assertEquals(34, tree1.root.right.right.left.left.value);
     }
 
     @Test
@@ -66,7 +60,7 @@ public class BinaryTreeTests {
 
     @Test
     public void binaryTreeGetRootTest() {
-
+        assertEquals(tree1.root, tree1.getRootElement());
     }
 
     //Doesnt have a remove yet. I am going to try and make one.
