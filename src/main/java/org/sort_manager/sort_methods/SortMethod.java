@@ -22,4 +22,6 @@ public abstract class SortMethod {
 
     public abstract long getTimeTaken();
 
+    public abstract String getSorterName();
+
 }

@@ -37,6 +37,11 @@ public class BinaryTree extends SortMethod implements BinaryTreeI {
         return timeTaken;
     }
 
+    @Override
+    public String getSorterName() {
+        return "Binary Tree: ";
+    }
+
     //Add function, triggers the recursive add function on the root.
     @Override
     public void add(Integer value) {

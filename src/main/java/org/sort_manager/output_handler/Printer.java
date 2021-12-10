@@ -5,8 +5,7 @@ import org.sort_manager.sort_methods.SortMethod;
 import java.util.Arrays;
 
 public class Printer {
-    public static void printMessage(String message)
-    {
+    public static void printMessage(String message) {
         //Temporary until I learn another way to do it
         System.out.println(message);
     }

@@ -60,4 +60,9 @@ public class BubbleSorter extends SortMethod {
     public long getTimeTaken() {
         return time_taken;
     }
+
+    @Override
+    public String getSorterName() {
+        return "BubbleSorter: ";
+    }
 }

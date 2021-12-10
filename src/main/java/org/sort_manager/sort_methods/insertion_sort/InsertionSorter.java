@@ -23,4 +23,9 @@ public class InsertionSorter extends SortMethod {
     public long getTimeTaken() {
         return 0;
     }
+
+    @Override
+    public String getSorterName() {
+        return "Insertion: ";
+    }
 }
