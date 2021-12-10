@@ -40,7 +40,7 @@ public class BubbleSorter extends SortMethod {
                     listToSort[i+1] = temp;
                     //Change has been made so the list is not yet sorted
                     sorted = false;
-                    System.out.println(Arrays.toString(getUnsortedArray()));
+                    //System.out.println(Arrays.toString(getUnsortedArray()));
                 }
             }
         }

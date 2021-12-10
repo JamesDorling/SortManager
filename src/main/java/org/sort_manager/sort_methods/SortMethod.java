@@ -8,7 +8,7 @@ public abstract class SortMethod {
 
     public SortMethod(Integer[] arrayToSort) {
         unsortedArray = arrayToSort;
-        System.out.println(Arrays.toString(unsortedArray));
+        //System.out.println(Arrays.toString(unsortedArray));
     }
 
     public abstract Integer[] getSortedArray();

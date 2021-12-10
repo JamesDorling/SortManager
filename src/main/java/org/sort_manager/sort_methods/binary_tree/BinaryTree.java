@@ -2,8 +2,6 @@ package org.sort_manager.sort_methods.binary_tree;
 
 import org.sort_manager.sort_methods.SortMethod;
 
-import java.time.LocalDate;
-import java.time.LocalTime;
 import java.util.ArrayList;
 
 public class BinaryTree extends SortMethod implements BinaryTreeI {
@@ -29,8 +27,9 @@ public class BinaryTree extends SortMethod implements BinaryTreeI {
     //Constructor three, so that a list of inputs can be entered immediately.
     public BinaryTree(Integer[] ListToSort)
     {
-
         super(ListToSort);
+        iterations = 0;
+        timeTaken = 0;
         long start = System.currentTimeMillis();
         root = null;
         add(ListToSort);
@@ -45,12 +44,12 @@ public class BinaryTree extends SortMethod implements BinaryTreeI {
 
     @Override
     public int getIterations() {
-        return 0;
+        return iterations;
     }
 
     @Override
     public long getTimeTaken() {
-        return 0;
+        return timeTaken;
     }
 
     //Add function, triggers the recursive add function on the root.
@@ -78,9 +77,11 @@ public class BinaryTree extends SortMethod implements BinaryTreeI {
         //If the value to be added is less than the current node's value then make a new node at currentNode.left.
         if(addedValue <= currentNode.value) {
             currentNode.left = addNodeRecursive(currentNode.left, addedValue);
+            iterations += 1;
         } //If the value to be added is more than the current node's value then make a new node at currentNode.right.
         else {
             currentNode.right = addNodeRecursive(currentNode.right, addedValue);
+            iterations += 1;
         }
         //Else return currentNode, as the node already exists.
         return currentNode;

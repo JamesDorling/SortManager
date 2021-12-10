@@ -13,6 +13,7 @@ public class SortFactory {
             case "tree" -> new BinaryTree(arrayToSort);
             case "merge" -> new MergeSorter(arrayToSort);
             case "insertion" -> new InsertionSorter(arrayToSort);
+            default -> new BubbleSorter(arrayToSort);
         };
     }
 }
