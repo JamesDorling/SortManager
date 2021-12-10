@@ -1,14 +1,14 @@
 package org.sort_manager.sort_methods.binary_tree;
 
-import org.junit.jupiter.api.AfterAll;
-import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.TestInfo;
+import org.junit.jupiter.api.*;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 
 public class BinaryTreeTests {
+    private BinaryTree tree1;
+    private BinaryTree tree2;
+
 
     @BeforeAll
     static void setupAll(TestInfo testInfo) {
@@ -18,50 +18,54 @@ public class BinaryTreeTests {
     @AfterAll
     static void tearDownAll(TestInfo testInfo) { System.out.println(testInfo.getTestClass() + " has completely finished testing."); }
 
-    BinaryTree tree1 = new BinaryTree(5);
-    BinaryTree tree2 = new BinaryTree();
+    @BeforeEach
+    void setupEach(TestInfo testInfo) {
+        tree1 = new BinaryTree(new Integer[]{9, 6, 5, 3, 8, 9, 2, 4, 6, 3, 4});
+    }
+
 
     @Test
     public void binaryTreeAddTest() {
 
         //Tests to make sure it adds the nodes in the correct places.
-        tree1.add(2);
-        tree1.add(3);
-        tree1.add(new Integer[]{9, 6});
-        assertEquals(3, tree1.root.left.right.value);
-        assertEquals(6, tree1.root.right.left.value);
-        tree2.add(new Integer[]{5, 3, 6, 2, 9, 9, 10, 4, 7});
-        assertEquals(7, tree2.root.right.right.left.left.value);
-        assertEquals(2, tree2.root.left.left.value);
-        assertEquals(9, tree2.root.right.right.left.value);
+
+        //assertEquals(3, tree1.root.left.right.value);
+        //assertEquals(6, tree1.root.right.left.value);
+        //assertEquals(7, tree2.root.right.right.left.left.value);
+        //assertEquals(2, tree2.root.left.left.value);
+        //assertEquals(9, tree2.root.right.right.left.value);
     }
 
     @Test
     public void binaryTreeSearchTest() {
-        tree1.add(new Integer[]{9, 6});
         //Hard typing in the route it needs to go through to search.
-        assertEquals(tree1.root.right.left.value, BinaryTreeSearch.binaryTreeSearch(tree1.root, 6).value);
+        assertEquals(tree1.root.left.left.left.right.value, BinaryTreeSearch.binaryTreeSearch(tree1.root, 4).value);
     }
 
     @Test
     public void binaryTreeCountTest() {
-        tree1.add(new Integer[]{9, 6});
-        assertEquals(3, tree1.getNumberOfElements());
+        assertEquals(11, tree1.getNumberOfElements());
 
     }
 
     @Test
-    public void binaryTreeGetterTests() {
+    public void binaryTreeAscendingSortTest() {
         //Tree1, so 5 is already root
-        tree1.add(new Integer[]{9, 6, 5, 3, 8, 9, 2, 4, 6, 3, 4});
-        assertArrayEquals(new Integer[]{2, 3, 3, 4, 4, 5, 5, 6, 6, 8, 9, 9}, tree1.getSortedTreeAsc());
-        assertArrayEquals(new Integer[]{9, 9, 8, 6, 6, 5, 5, 4, 4, 3, 3, 2}, tree1.getSortedTreeDesc());
+        assertArrayEquals(new Integer[]{2, 3, 3, 4, 4, 5, 6, 6, 8, 9, 9}, tree1.getSortedArray());
+
     }
+
+    @Test
+    public void binaryTreeDescendingSortTest() {
+        //Tree1, so 5 is already root
+        assertArrayEquals(new Integer[]{9, 9, 8, 6, 6, 5, 4, 4, 3, 3, 2}, tree1.getSortedTreeDesc());
+
+    }
+
+
 
     @Test
     public void binaryTreeGetRootTest() {
-        tree1.add(new Integer[]{9, 6});
-        assertEquals(5, tree1.getRootElement().value);
 
     }
 

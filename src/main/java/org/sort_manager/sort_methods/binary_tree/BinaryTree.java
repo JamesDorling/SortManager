@@ -9,22 +9,7 @@ public class BinaryTree extends SortMethod implements BinaryTreeI {
     Integer iterations;
     long timeTaken;
 
-    //Two constructors. Either setting a root node or setting it to null.
-    public BinaryTree(Integer rootValue)
-    {
-        super(new Integer[]{rootValue});
-        iterations = 0;
-        timeTaken = 0;
-        root = new Node(rootValue);
-    }
-    //Constructor two, so that a starting node is not necessary.
-    public BinaryTree()
-    {
-        super(new Integer[0]);
-        root = null;
-    }
-
-    //Constructor three, so that a list of inputs can be entered immediately.
+    //Constructor, so that a list of inputs can be entered immediately.
     public BinaryTree(Integer[] ListToSort)
     {
         super(ListToSort);
