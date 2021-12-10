@@ -1,16 +1,13 @@
 package org.sort_manager.array_randomiser;
 
+import java.util.Arrays;
 import java.util.Random;
 
 public class ArrayRandomiser {
     public static Integer[] generateRandomNumberList (int listSize) {
-        //Predefine result
-        Integer[] result = new Integer[listSize];
-        //Get an instance of the randomiser
+        //Get randomiser instance
         Random randomiser = new Random();
-        //Loop through each value in the array and randomise it.
-        for(int i = 0; i < listSize; i++) { result[i] = randomiser.nextInt(999); }
-        //Return the randomised array.
-        return result;
+        //Return a random array of Integers from 0 to listSize
+        return Arrays.stream(randomiser.ints(listSize,0, 999).toArray()).boxed().toArray(Integer[]::new);
     }
 }
