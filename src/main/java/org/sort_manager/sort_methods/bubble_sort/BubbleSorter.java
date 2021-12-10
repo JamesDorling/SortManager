@@ -9,7 +9,6 @@ public class BubbleSorter extends SortMethod {
     int iterations = 0;
     long time_taken;
     Integer[] sorted_list;
-    int[] unsorted_list;
 
     public BubbleSorter(Integer[] listToSort)
     {
