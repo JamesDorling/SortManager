@@ -4,17 +4,18 @@ import java.util.Arrays;
 
 public abstract class SortMethod {
 
-    static Integer[] unsortedArray;
+    Integer[] unsortedArray;
 
     public SortMethod(Integer[] arrayToSort) {
-        unsortedArray = arrayToSort;
+        unsortedArray = new Integer[arrayToSort.length];
+        System.arraycopy(arrayToSort, 0, unsortedArray, 0, arrayToSort.length);
         //System.out.println(Arrays.toString(unsortedArray));
     }
 
     public abstract Integer[] getSortedArray();
 
-    public static Integer[] getUnsortedArray() {
-        return unsortedArray;
+    public Integer[] getUnsortedArray() {
+        return this.unsortedArray;
     }
 
     public abstract int getIterations();

@@ -9,6 +9,7 @@ public class BubbleSorter extends SortMethod {
     int iterations = 0;
     long time_taken;
     Integer[] sorted_list;
+    int[] unsorted_list;
 
     public BubbleSorter(Integer[] listToSort)
     {
@@ -40,7 +41,7 @@ public class BubbleSorter extends SortMethod {
                     listToSort[i+1] = temp;
                     //Change has been made so the list is not yet sorted
                     sorted = false;
-                    //System.out.println(Arrays.toString(getUnsortedArray()));
+                    System.out.println(Arrays.toString(getUnsortedArray()));
                 }
             }
         }
