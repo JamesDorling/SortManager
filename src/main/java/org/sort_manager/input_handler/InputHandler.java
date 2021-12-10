@@ -18,4 +18,18 @@ public class InputHandler {
         //Take the typed in word
         return scan.nextInt();
     }
+
+    public static Integer takeInputRandomnessLowerBound() {
+        Printer.printMessage("Please input the lower bound of the random numbers you would like: ");
+        Scanner scan = new Scanner(System.in);
+        //Take the typed in word
+        return scan.nextInt();
+    }
+
+    public static Integer takeInputRandomnessUpperBound() {
+        Printer.printMessage("Please input the upper bound of the random numbers you would like: ");
+        Scanner scan = new Scanner(System.in);
+        //Take the typed in word
+        return scan.nextInt();
+    }
 }
