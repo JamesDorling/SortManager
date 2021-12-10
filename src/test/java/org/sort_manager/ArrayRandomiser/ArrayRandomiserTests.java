@@ -9,6 +9,10 @@ import java.util.Arrays;
 
 public class ArrayRandomiserTests {
 
+    /*
+    Many of these tests are kind of unnecessary as I am using a built-in java.util function for the randomness. However,
+    there is no harm in making sure I haven't messed anything up while using it.
+    */
     @BeforeAll
     static void setupAll(TestInfo testInfo) {
         System.out.println(testInfo.getTestClass() + " executing");
@@ -17,11 +21,10 @@ public class ArrayRandomiserTests {
     @AfterAll
     static void tearDownAll(TestInfo testInfo) { System.out.println(testInfo.getTestClass() + " has completely finished testing."); }
 
-
     @ParameterizedTest()
     @ValueSource(ints = {10, 30, 4, 18})
-    @DisplayName("Random numbers are generated test")
-    void randomNumbersGeneratedTest(int listSize) {
+    @DisplayName("Correct amount of numbers are generated test")
+    void amountOfNumsGeneratedTest(int listSize) {
         Assertions.assertEquals(listSize, ArrayRandomiser.generateRandomNumberList(listSize).length);
     }
 
