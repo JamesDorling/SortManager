@@ -41,7 +41,19 @@ public class BubbleSorterTests {
         @Test
         @DisplayName("Getting the iterations test")
         public void getIterations() {
-            assertArrayEquals(new Integer[]{9, 6, 5, 3, 8, 9, 2, 4, 6, 3, 4}, bubble_sorter.getUnsortedArray());
+            /*
+            the iterations here should be 80 as one iteration is every time a number is compared to the one above it,
+            And the amount of times the entire list is iterated through is 8.
+
+            There are 11 values in the list, but the way that this bubble sort works is by comparing a number to the
+            number after it in the array, meaning that the last value is never checked against anything above it,
+            which therefore makes a complete iteration through the entire list only 10 checks. This means that, being as
+            there are 8 "complete iterations" through the list, there are 80 iterations where a number is checked, even
+            if no number was changed during that check. (For example the last 17 iterations change nothing, because the
+            sorter finishes 3 into the second to last "complete iteration" and the last "complete iteration" is just
+            to check the list is sorted.)
+             */
+            assertEquals(80, bubble_sorter.getIterations());
 
         }
 

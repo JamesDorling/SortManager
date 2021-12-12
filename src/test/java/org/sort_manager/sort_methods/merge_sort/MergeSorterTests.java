@@ -3,8 +3,7 @@ package org.sort_manager.sort_methods.merge_sort;
 import org.junit.jupiter.api.*;
 import org.sort_manager.sort_methods.bubble_sort.BubbleSorter;
 
-import static org.junit.jupiter.api.Assertions.assertArrayEquals;
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class MergeSorterTests {
     private MergeSorter merge_sorter;
@@ -24,14 +23,14 @@ public class MergeSorterTests {
     class SortMethodFunctionTests {
         @Test
         @DisplayName("Getting the sorted array test")
-        public void binaryTreeGetSortedTest() {
+        public void mergeSorterGetSortedTest() {
             assertArrayEquals(new Integer[]{2, 3, 3, 4, 4, 5, 6, 6, 8, 9, 9}, merge_sorter.getSortedArray());
 
         }
 
         @Test
         @DisplayName("Getting the unsorted array test")
-        public void binaryTreeGetUnsortedTest() {
+        public void mergeSorterGetUnsortedTest() {
             assertArrayEquals(new Integer[]{9, 6, 5, 3, 8, 9, 2, 4, 6, 3, 4}, merge_sorter.getUnsortedArray());
 
         }
@@ -39,7 +38,13 @@ public class MergeSorterTests {
         @Test
         @DisplayName("Getting the iterations test")
         public void getIterations() {
-            assertArrayEquals(new Integer[]{9, 6, 5, 3, 8, 9, 2, 4, 6, 3, 4}, merge_sorter.getUnsortedArray());
+            /*
+            Each iteration here is when a number is added to a new array. This means that if two arrays of 4 were being
+            added together, the number of iterations would be 8 as the amount of numbers added to the new merged array
+            is 8. This equals 39 as it is not basically (11 * how many times lists were merged) as 11 does not cleanly
+            divide by 2.
+             */
+            assertEquals(39, merge_sorter.getIterations());
 
         }
 

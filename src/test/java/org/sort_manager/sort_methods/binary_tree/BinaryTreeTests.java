@@ -89,7 +89,12 @@ public class BinaryTreeTests {
         @Test
         @DisplayName("Getting the iterations test")
         public void getIterations() {
-            assertArrayEquals(new Integer[]{9, 6, 5, 3, 8, 9, 2, 4, 6, 3, 4}, tree1.getUnsortedArray());
+            /*
+            For the provided array, there should be 32 iterations as each iteration is a location being checked
+            I.E if a number is added to the root.left.left.right then that is 3 iterations, as it checks root (which
+            doesn't count) then it checks the left, then the left, then the right.
+             */
+            assertEquals(32, tree1.getIterations());
 
         }
 
