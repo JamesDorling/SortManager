@@ -1,37 +1,63 @@
 package org.sort_manager.sort_methods.binary_tree;
 
+import org.sort_manager.sort_methods.SortMethod;
+
 import java.util.ArrayList;
 
-public class BinaryTree implements BinaryTreeI {
+public class BinaryTree extends SortMethod implements BinaryTreeI {
     Node root;
+    Integer iterations;
+    long timeTaken;
 
-    //Two constructors. Either setting a root node or setting it to null.
-    public BinaryTree(int rootValue)
+    //Constructor, so that a list of inputs can be entered immediately.
+    public BinaryTree(Integer[] ListToSort)
     {
-        root = new Node(rootValue);
-    }
-    //Constructor two, so that a starting node is not necessary.
-    public BinaryTree()
-    {
+        super(ListToSort);
+        iterations = 0;
+        timeTaken = 0;
+        long start = System.currentTimeMillis();
         root = null;
+        add(ListToSort);
+        //Sorting happens automatically during "add" and therefore by timing this I will get the time taken to sort.
+        timeTaken = System.currentTimeMillis() - start;
+    }
+
+    @Override
+    public Integer[] getSortedArray() {
+        return getSortedTreeAsc();
+    }
+
+    @Override
+    public int getIterations() {
+        return iterations;
+    }
+
+    @Override
+    public long getTimeTaken() {
+        return timeTaken;
+    }
+
+    @Override
+    public String getSorterName() {
+        return "Binary Tree: ";
     }
 
     //Add function, triggers the recursive add function on the root.
     @Override
-    public void add(int value) {
+    public void add(Integer value) {
         root = addNodeRecursive(root, value);
     }
 
     @Override
-    public void add(final int[] valueArray) {
-        for (int j : valueArray) {
+    public void add(final Integer[] valueArray) {
+        for (Integer j : valueArray) {
             //Iterate through the array and add each value.
             this.add(j);
         }
     }
 
     //Recursive node addition. Will loop from node until it finds the perfect spot that is null.
-    private Node addNodeRecursive(Node currentNode, int addedValue)
+    private Node addNodeRecursive(Node currentNode, Integer addedValue)
     {
         //If the current node is a null, then make a new node with the value.
         if(currentNode == null) {
@@ -41,9 +67,11 @@ public class BinaryTree implements BinaryTreeI {
         //If the value to be added is less than the current node's value then make a new node at currentNode.left.
         if(addedValue <= currentNode.value) {
             currentNode.left = addNodeRecursive(currentNode.left, addedValue);
+            iterations += 1;
         } //If the value to be added is more than the current node's value then make a new node at currentNode.right.
         else {
             currentNode.right = addNodeRecursive(currentNode.right, addedValue);
+            iterations += 1;
         }
         //Else return currentNode, as the node already exists.
         return currentNode;
@@ -55,12 +83,12 @@ public class BinaryTree implements BinaryTreeI {
     }
 
     @Override
-    public int getNumberOfElements() {
+    public Integer getNumberOfElements() {
         //Return the number of elements
         return countElements(this.root);
     }
 
-    private int countElements(Node rootNode) {
+    private Integer countElements(Node rootNode) {
         //If no root then no elements.
         if(rootNode == null) {
             return 0;
@@ -74,7 +102,7 @@ public class BinaryTree implements BinaryTreeI {
     }
 
     @Override
-    public Node findElement(int value) {
+    public Node findElement(Integer value) {
         return BinaryTreeSearch.binaryTreeSearch(this.root, value);
     }
 
@@ -88,27 +116,27 @@ public class BinaryTree implements BinaryTreeI {
         return element.right;
     }
 
-    @Override //Getter for the tree's elements. I wanted to return this as an array of ints rather than an arraylist.
-    public int[] getSortedTreeAsc() {
+    @Override //Getter for the tree's elements. I wanted to return this as an array of Integers rather than an arraylist.
+    public Integer[] getSortedTreeAsc() {
         //Grab an arraylist of the nodes
         ArrayList<Integer> nodeList = getNodeList(root);
         //Grab an arraylist of the nodes
-        int[] result = new int[nodeList.size()];
-        //transform the arraylist into an array of ints.
+        Integer[] result = new Integer[nodeList.size()];
+        //transform the arraylist into an array of Integers.
         for (int i = 0; i < result.length; i++) {
             result[i] = nodeList.get(i);
         }
         return result;
     }
 
-    //USE ARRAY FLIPPER?
-    @Override //Getter for the tree's elements backwards. I wanted to return this as an array of ints rather than an arraylist.
-    public int[] getSortedTreeDesc() {
+    @Override //Getter for the tree's elements backwards. I wanted to return this as an array of Integers rather than an arraylist.
+    public Integer[] getSortedTreeDesc() {
         //Grab an arraylist of the nodes
         ArrayList<Integer> nodeList = getNodeList(root);
+
         //Grab an arraylist of the nodes
-        int[] result = new int[nodeList.size()];
-        //transform the arraylist into an array of ints, but do it backwards.
+        Integer[] result = new Integer[nodeList.size()];
+        //transform the arraylist into an array of Integers, but do it backwards.
         for (int i = 0; i < nodeList.size(); i++) {
             result[i] = nodeList.get((result.length - 1) - i);
         }
