@@ -12,7 +12,7 @@ hence the focus on recently learned OOP features, such as a factory pattern.
 * * [Binary Tree](#binary-tree)
 * * [Bubble Sort](#bubble-sort)
 * * [Merge Sort](#merge-sort)
-* * [Bubble Sort](#insertion-sort)
+* * [Insertion Sort](#insertion-sort)
 * [Testing](#testing)
 * [Project Management](#project-management)
 * [What did I learn from this?](#what-did-i-learn)
@@ -24,7 +24,7 @@ Simply type in the sort method you would like to use, for example "bubble" and
 then type in the array size you would like to sort.
 
 #### Syntax: 
-Sort methods: bubble, tree
+Sort methods: bubble, tree, merge, insert
 
 Size of array: Any number. 
 (Go too large with this and it could have adverse side effects for your computer.)
