@@ -1,16 +1,83 @@
 package org.sort_manager.sort_methods.merge_sort;
 
+//I found this online, seems to have an array.remove function so I added it.
+import org.apache.commons.lang3.ArrayUtils;
 import org.sort_manager.sort_methods.SortMethod;
 
+import java.util.Arrays;
+
 public class MergeSorter extends SortMethod {
+    Integer[] sorted_array;
+    int iterations = 0;
+    long time_taken;
+
     public MergeSorter(Integer[] listToSort) {
         super(listToSort);
-        System.out.println("Merge sort called");
+        long start = System.currentTimeMillis();
+        sorted_array = mergeSortArray(listToSort);
+
+        time_taken = System.currentTimeMillis() - start;
+
     }
 
     @Override
     public Integer[] getSortedArray() {
-        return new Integer[0];
+        return sorted_array;
+    }
+
+    /*
+    So if Im understanding merge sort right, you split an array up until it is in groups of one, and then put them
+    together again in ascending order so that when merging two arrays you can go through the arrays only checking the
+    far left element as it will always be the smallest in the array.
+
+    It makes sense to me, but I don't think I have explained that well.
+    So with an array of 1,4,3,2 you split it up to be 4 individual numbers, and then put them together again
+    meaning you would be left with 1,4 and 2,3 which you then can put together again by only comparing their elements
+    that are on the far left.
+     */
+    private Integer[] mergeSortArray(Integer[] arrayToSort) {
+        Integer[] result;
+        result = mergeSort(arrayToSort);
+        return result;
+    }
+
+    private Integer[] mergeSort(Integer[] arrayToSplit) {
+        //If the array is already only one value then just return it, as it is already sorted.
+        if (arrayToSplit.length == 1) {
+            return arrayToSplit;
+        }
+        //Recursively get all of the merged arrays
+        Integer[] leftArray = mergeSort(ArrayUtils.subarray(arrayToSplit, 0, arrayToSplit.length / 2));
+        Integer[] rightArray = mergeSort(ArrayUtils.subarray(arrayToSplit, arrayToSplit.length / 2, arrayToSplit.length + 1));
+        return mergeArrays(leftArray, rightArray);
+    }
+
+    //Left and right array are to visualise it better.
+    private Integer[] mergeArrays(Integer[] leftArray, Integer[] rightArray) {
+        //Predefine the result
+        Integer[] result = new Integer[leftArray.length + rightArray.length];
+
+        //Loop through and merge the arrays. Could probably do with rewriting to remove excessive if statements.
+        for(int i = 0; i < result.length; i++) {
+            if(leftArray.length == 0) { //&& rightArray != null
+                result[i] = rightArray[0];
+                rightArray = ArrayUtils.remove(rightArray, 0);
+            }
+            else if(rightArray.length == 0) { //&& rightArray != null
+                result[i] = leftArray[0];
+                leftArray = ArrayUtils.remove(leftArray, 0);
+            }
+            else if(leftArray[0] <= rightArray[0]) {
+                result[i] = leftArray[0];
+                leftArray = ArrayUtils.remove(leftArray, 0);
+            }
+            else
+            {
+                result[i] = rightArray[0];
+                rightArray = ArrayUtils.remove(rightArray, 0);
+            }
+        }
+        return result;
     }
 
     @Override
@@ -20,7 +87,7 @@ public class MergeSorter extends SortMethod {
 
     @Override
     public long getTimeTaken() {
-        return 0;
+        return time_taken;
     }
 
     @Override
