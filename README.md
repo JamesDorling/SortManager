@@ -11,8 +11,8 @@ hence the focus on recently learned OOP features, such as a factory pattern.
 * [Sorting Methods Implemented](#sorting-methods-implemented)
 * * [Binary Tree](#binary-tree)
 * * [Bubble Sort](#bubble-sort)
-* * [~~Merge Sort~~](#merge-sort)
-* * [~~Bubble Sort~~](#insertion-sort)
+* * [Merge Sort](#merge-sort)
+* * [Bubble Sort](#insertion-sort)
 * [Testing](#testing)
 * [Project Management](#project-management)
 * [What did I learn from this?](#what-did-i-learn)
@@ -42,11 +42,16 @@ that data.
 Bubble sorting is fully implemented and tested. This method iterates through the given array 
 one element at a time and swaps any two elements that are in the wrong place.
 
-### ~~Merge Sort~~
-Merge sorting is not yet implemented.
+### Merge Sort
+Merge sorting is fully implemented and tested. This method recursively splits the array up into
+individual values and merges them back together into the correct order.
 
-### ~~Insertion Sort~~
-Insertion sorting is not yet implemented.
+### Insertion Sort
+Insertion sorting is fully implemented and tested. This method temporarily saves a value and then
+moves that value behind all values larger than it (Therefore shifting those larger values forwards).
+This method will then do the same with the next value until the entire array is sorted.
+
+
 
 
 ## Testing
@@ -72,3 +77,6 @@ learned by making me use it, but that does not mean I have not learned anything 
 Firstly, I have learned about how Java uses pointers to arrays after struggling to work out why
 my bubble sort method was not working for a few hours, and I have definitely solidified my knowledge
 of OOP, with this being the first time I have ever tried out a pattern.
+
+I have also learned both merge sort and insertion sort, two sorting methods that I had never
+used before this project.
