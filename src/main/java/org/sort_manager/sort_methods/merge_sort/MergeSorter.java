@@ -55,6 +55,7 @@ public class MergeSorter extends SortMethod {
 
         //Loop through and merge the arrays. Could probably do with rewriting to remove excessive if statements.
         for(int i = 0; i < result.length; i++) {
+            //Add one to iterations as this is how many times the array has been split and merged.
             iterations += 1;
             //If the left array is empty, then add the right array values.
             if(leftArray.length == 0) {
