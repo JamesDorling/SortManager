@@ -14,7 +14,8 @@ public class MergeSorter extends SortMethod {
     public MergeSorter(Integer[] listToSort) {
         super(listToSort);
         long start = System.currentTimeMillis();
-        sorted_array = mergeSortArray(listToSort);
+        iterations = 0;
+        sorted_array = mergeSort(listToSort);
 
         time_taken = System.currentTimeMillis() - start;
 
@@ -35,11 +36,6 @@ public class MergeSorter extends SortMethod {
     meaning you would be left with 1,4 and 2,3 which you then can put together again by only comparing their elements
     that are on the far left.
      */
-    private Integer[] mergeSortArray(Integer[] arrayToSort) {
-        Integer[] result;
-        result = mergeSort(arrayToSort);
-        return result;
-    }
 
     private Integer[] mergeSort(Integer[] arrayToSplit) {
         //If the array is already only one value then just return it, as it is already sorted.
@@ -59,30 +55,33 @@ public class MergeSorter extends SortMethod {
 
         //Loop through and merge the arrays. Could probably do with rewriting to remove excessive if statements.
         for(int i = 0; i < result.length; i++) {
-            if(leftArray.length == 0) { //&& rightArray != null
+            iterations += 1;
+            //If the left array is empty, then add the right array values.
+            if(leftArray.length == 0) {
                 result[i] = rightArray[0];
                 rightArray = ArrayUtils.remove(rightArray, 0);
-            }
-            else if(rightArray.length == 0) { //&& rightArray != null
+            } //If the right array is empty, then add the left array values.
+            else if(rightArray.length == 0) {
                 result[i] = leftArray[0];
                 leftArray = ArrayUtils.remove(leftArray, 0);
-            }
+            } //If the first value in the left array is smaller than the right array, then add it
             else if(leftArray[0] <= rightArray[0]) {
                 result[i] = leftArray[0];
                 leftArray = ArrayUtils.remove(leftArray, 0);
-            }
+            } //If all of these fail then add the first value in the right array.
             else
             {
                 result[i] = rightArray[0];
                 rightArray = ArrayUtils.remove(rightArray, 0);
             }
         }
+        //Return the sorted result
         return result;
     }
 
     @Override
     public int getIterations() {
-        return 0;
+        return iterations;
     }
 
     @Override
