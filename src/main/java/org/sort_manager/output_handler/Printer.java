@@ -10,9 +10,11 @@ public class Printer {
         System.out.println(message);
     }
 
-    public static void printSortedArrayAndUnsortedArray(SortMethod sorter) {
+    public static void printArrayData(SortMethod sorter) {
         printMessage(sorter.getSorterName());
         printMessage("Unsorted: " + Arrays.toString(sorter.getUnsortedArray()));
         printMessage("Sorted: " + Arrays.toString(sorter.getSortedArray()));
+        printMessage("Iterations: " + sorter.getIterations());
+        printMessage("Time taken in milliseconds: " + sorter.getTimeTaken());
     }
 }
