@@ -8,6 +8,6 @@ public class ArrayRandomiser {
         //Get randomiser instance
         Random randomiser = new Random();
         //Return a random array of Integers from 0 to listSize
-        return Arrays.stream(randomiser.ints(listSize,0, 999).toArray()).boxed().toArray(Integer[]::new);
+        return Arrays.stream(randomiser.ints(listSize).toArray()).boxed().toArray(Integer[]::new);
     }
 }
