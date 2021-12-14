@@ -7,9 +7,11 @@ import java.util.Scanner;
 public class InputHandler {
     public static String takeInputSortType() {
         Printer.printMessage("Please input the type of sorting you would like to use: ");
+        Printer.printMessage("Options: tree, bubble, insert, merge");
         Scanner scan = new Scanner(System.in);
         //Take the typed in word
         return scan.nextLine();
+        //Close scanners --------------------------------------------------------------------------------------------
     }
 
     public static Integer takeInputListSize() {
