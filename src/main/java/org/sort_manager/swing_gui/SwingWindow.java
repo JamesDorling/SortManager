@@ -18,7 +18,9 @@ public class SwingWindow {
     }
 
     private static JFrame createWindow(String name, int[] size) {
+        //Make a new frame
         JFrame window = new JFrame(name);
+        //Set the default close operation, the size and the layout.
         window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         window.setSize(size[0], size[1]);
         window.setLayout(new GridBagLayout());
@@ -38,9 +40,6 @@ public class SwingWindow {
 
         //Add the text input field
         SwingTextInput.addTextInputField(window, constraints);
-
-        //Add the press enter reminder
-        SwingTextInput.addPressEnterLabel(window, constraints);
 
         //Add the output text area
         SwingTextOutputWindow.addOutputArea(window, constraints);
