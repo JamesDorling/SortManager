@@ -13,22 +13,18 @@ hence the focus on recently learned OOP features, such as a factory pattern.
 * * [Bubble Sort](#bubble-sort)
 * * [Merge Sort](#merge-sort)
 * * [Insertion Sort](#insertion-sort)
+* [Swing](#swing)
 * [Testing](#testing)
 * [Project Management](#project-management)
 * [What did I learn from this?](#what-did-i-learn)
 
 
 ## How To Use
-This system functions fully from the command line.
-Simply type in the sort method you would like to use, for example "bubble" and 
-then type in the array size you would like to sort.
+This system will bring up a window made using swing. In this window, you can input the size of the array
+you would like to sort at the top of the screen (Default is 5). Then, you can sort an array of the input size
+by clicking one of the buttons at the bottom of the screen.
 
-#### Syntax: 
-Sort methods: bubble, tree, merge, insert
-
-Size of array: Any number. 
-(Go too large with this and it could have adverse side effects for your computer.)
-
+(BE WARNED: Going too high on the array size could have adverse side effects on your computer.)
 
 ## Sorting Methods Implemented
 Currently, both binary tree sort and bubble sort are implemented.
@@ -51,8 +47,9 @@ Insertion sorting is fully implemented and tested. This method temporarily saves
 moves that value behind all values larger than it (Therefore shifting those larger values forwards).
 This method will then do the same with the next value until the entire array is sorted.
 
-
-
+## Swing
+The front-end of this application is made using Swing. This was my first time using it, so I definitely 
+struggled to get it working, but it is now fully implemented. However, this is not tested yet.
 
 ## Testing
 Most of this project is tested in Junit, with the only files that are not unit tested being ones 

@@ -25,7 +25,7 @@ public class SortFactoryTests {
                 Arguments.arguments("bubble", new Integer[]{3, 2}, BubbleSorter.class),
                 Arguments.arguments("tree", new Integer[]{3, 2}, BinaryTree.class),
                 Arguments.arguments("merge", new Integer[]{3, 2}, MergeSorter.class),
-                Arguments.arguments("insertion", new Integer[]{3, 2}, InsertionSorter.class)
+                Arguments.arguments("insert", new Integer[]{3, 2}, InsertionSorter.class)
         );
     }
 
