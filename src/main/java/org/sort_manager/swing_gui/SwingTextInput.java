@@ -67,6 +67,7 @@ public class SwingTextInput {
                                                     SystemLogger.logInfo("List Size Changed to " + inputNumber);
                                                 } catch (NumberFormatException exception) { //If that fails, then say it isnt a number and reset the text to the previous inputnumber.
                                                     SwingTextOutputWindow.addTextToScreen("Thats not a number! \n");
+                                                    SystemLogger.logSevere("Number not recognised! Resetting to previous.");
                                                     textInputField.setText(Integer.toString(inputNumber));
                                                 }
                                             }

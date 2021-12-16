@@ -1,5 +1,6 @@
 package org.sort_manager.swing_gui;
 
+import org.sort_manager.output_handler.SystemLogger;
 import org.sort_manager.sort_methods.SortMethod;
 
 import javax.swing.*;
@@ -24,6 +25,7 @@ public class SwingTextOutputWindow {
 
     public static void printArrayData(SortMethod sorter) {
         //Print out the necessary data, that being the sorter name, the unsorted array, the sorted array, the iterations and the time taken.
+        SystemLogger.logInfo("Printing results to screen.");
         output_area.append(sorter.getSorterName() + "\n");
         output_area.append("Unsorted: " + Arrays.toString(sorter.getUnsortedArray()) + "\n");
         output_area.append("Sorted: " + Arrays.toString(sorter.getSortedArray()) + "\n");
