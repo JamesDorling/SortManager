@@ -1,6 +1,7 @@
 package org.sort_manager.sort_methods.insertion_sort;
 
 import org.apache.commons.lang3.ArrayUtils;
+import org.sort_manager.output_handler.SystemLogger;
 import org.sort_manager.sort_methods.SortMethod;
 
 public class InsertionSorter extends SortMethod {
@@ -10,6 +11,7 @@ public class InsertionSorter extends SortMethod {
 
     public InsertionSorter(Integer[] arrayToSort) {
         super(arrayToSort);
+        SystemLogger.logInfo("Insertion Sorter Called!");
         iterations = 0;
         long start = System.currentTimeMillis();
 

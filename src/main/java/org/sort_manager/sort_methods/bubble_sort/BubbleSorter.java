@@ -1,5 +1,6 @@
 package org.sort_manager.sort_methods.bubble_sort;
 
+import org.sort_manager.output_handler.SystemLogger;
 import org.sort_manager.sort_methods.SortMethod;
 
 import java.util.Arrays;
@@ -13,6 +14,7 @@ public class BubbleSorter extends SortMethod {
     public BubbleSorter(Integer[] listToSort)
     {
         super(listToSort);
+        SystemLogger.logInfo("Bubble Sorter Called!");
         long start = System.currentTimeMillis();
         //Set the sorted list to the sorted listToSort
         sorted_list = sortArray(listToSort);

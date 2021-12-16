@@ -1,5 +1,7 @@
 package org.sort_manager.swing_gui;
 
+import org.sort_manager.output_handler.SystemLogger;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.FocusEvent;
@@ -7,7 +9,8 @@ import java.awt.event.FocusListener;
 
 public class SwingTextInput {
     private static int inputNumber = 5;
-    public static void addTextInputField (JFrame window, GridBagConstraints constraints) {
+
+    public static void addTextInputField(JFrame window, GridBagConstraints constraints) {
         //This is static as there will only ever be one window
         //Make a text field
         JTextField textInputField = new JTextField(10);
@@ -48,18 +51,20 @@ public class SwingTextInput {
                                             public void focusGained(FocusEvent e) {
                                                 //Empty the input field on focus
                                                 textInputField.setText("");
+                                                SystemLogger.logInfo("Text Input Field Focus Gained");
                                             }
 
                                             @Override
                                             public void focusLost(FocusEvent e) {
+                                                SystemLogger.logInfo("Text Input Field Focus Lost");
                                                 //If nothing is typed, set the text back to what is was before focusing.
-                                                if(textInputField.getText().equals(""))
-                                                {
+                                                if (textInputField.getText().equals("")) {
                                                     textInputField.setText(Integer.toString(inputNumber));
                                                 }
                                                 //Try and parse the input text to an integer.
                                                 try {
                                                     inputNumber = Integer.parseInt(textInputField.getText());
+                                                    SystemLogger.logInfo("List Size Changed to " + inputNumber);
                                                 } catch (NumberFormatException exception) { //If that fails, then say it isnt a number and reset the text to the previous inputnumber.
                                                     SwingTextOutputWindow.addTextToScreen("Thats not a number! \n");
                                                     textInputField.setText(Integer.toString(inputNumber));

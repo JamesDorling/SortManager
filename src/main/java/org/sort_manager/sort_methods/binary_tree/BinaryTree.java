@@ -1,5 +1,6 @@
 package org.sort_manager.sort_methods.binary_tree;
 
+import org.sort_manager.output_handler.SystemLogger;
 import org.sort_manager.sort_methods.SortMethod;
 
 import java.util.ArrayList;
@@ -13,6 +14,7 @@ public class BinaryTree extends SortMethod implements BinaryTreeI {
     public BinaryTree(Integer[] ListToSort)
     {
         super(ListToSort);
+        SystemLogger.logInfo("Binary Tree Called!");
         iterations = 0;
         timeTaken = 0;
         long start = System.currentTimeMillis();
