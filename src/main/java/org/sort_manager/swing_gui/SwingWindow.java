@@ -1,5 +1,7 @@
 package org.sort_manager.swing_gui;
 
+import org.sort_manager.output_handler.SystemLogger;
+
 import javax.swing.*;
 import java.awt.*;
 
@@ -24,6 +26,7 @@ public class SwingWindow {
         window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         window.setSize(size[0], size[1]);
         window.setLayout(new GridBagLayout());
+        SystemLogger.logInfo("Window Configured");
         return window;
     }
 

@@ -4,8 +4,7 @@ import java.io.IOException;
 import java.util.logging.*;
 
 public class SystemLogger {
-    private final static SystemLogger SYSTEM_LOGGER = new SystemLogger();
-    Logger logger = Logger.getLogger("BigLoggerooski");
+    public static Logger logger = Logger.getLogger("BigLoggerooski");
 
     private SystemLogger() {
         try {
@@ -18,20 +17,19 @@ public class SystemLogger {
         }
     }
 
-
-    public void logInfo(String message) {
+    public static void logInfo(String message) {
         logger.log(Level.INFO, message);
     }
 
-    public void logWarning(String message) {
+    public static void logWarning(String message) {
         logger.log(Level.WARNING, message);
     }
 
-    public void logSevere(String message) {
+    public static void logSevere(String message) {
         logger.log(Level.SEVERE, message);
     }
 
-    public void logConfig(String message) {
+    public static void logConfig(String message) {
         logger.log(Level.CONFIG, message);
     }
 }
