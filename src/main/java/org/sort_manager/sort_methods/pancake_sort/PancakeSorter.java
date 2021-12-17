@@ -48,14 +48,16 @@ public class PancakeSorter extends SortMethod {
         return maxLocation;
     }
 
-    private Integer[] flipPancake(Integer[] arrayToSort, int arraySize) {
+    private Integer[] flipPancake(Integer[] arrayToSort, int flipMarker) {
         int start = 0;
-        while (start < arraySize) {
+        while (start < flipMarker) {
+            //Flip the array from the start of the array to the flipMarker. Then, move the start up and the flipMarker
+            //down to as it only flips one value at a time, so that the entire array/pancake can be worked through.
             Integer temp = arrayToSort[start];
-            arrayToSort[start] = arrayToSort[arraySize];
-            arrayToSort[arraySize] = temp;
+            arrayToSort[start] = arrayToSort[flipMarker];
+            arrayToSort[flipMarker] = temp;
             start += 1;
-            arraySize -= 1;
+            flipMarker -= 1;
             iterations += 1;
         }
         return arrayToSort;
