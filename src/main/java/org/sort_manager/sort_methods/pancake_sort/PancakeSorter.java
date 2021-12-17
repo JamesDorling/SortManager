@@ -12,6 +12,7 @@ public class PancakeSorter extends SortMethod {
 
     public PancakeSorter(Integer[] arrayToSort) {
         super(arrayToSort);
+        SystemLogger.logInfo("Pancake Sorter Called!");
         long start = System.currentTimeMillis();
         sorted_array = pancakeSort(arrayToSort);
         time_taken = System.currentTimeMillis() - start;
