@@ -2,6 +2,7 @@ package org.sort_manager.sort_methods.merge_sort;
 
 //I found this online, seems to have an array.remove function so I added it.
 import org.apache.commons.lang3.ArrayUtils;
+import org.sort_manager.output_handler.SystemLogger;
 import org.sort_manager.sort_methods.SortMethod;
 
 import java.util.Arrays;
@@ -13,6 +14,7 @@ public class MergeSorter extends SortMethod {
 
     public MergeSorter(Integer[] listToSort) {
         super(listToSort);
+        SystemLogger.logInfo("Merge Sorter Called!");
         long start = System.currentTimeMillis();
         iterations = 0;
         sorted_array = mergeSort(listToSort);

@@ -13,6 +13,7 @@ hence the focus on recently learned OOP features, such as a factory pattern.
 * * [Bubble Sort](#bubble-sort)
 * * [Merge Sort](#merge-sort)
 * * [Insertion Sort](#insertion-sort)
+* * [Pancake Sort](#pancake-sort)
 * [Swing](#swing)
 * [Testing](#testing)
 * [Project Management](#project-management)
@@ -46,6 +47,10 @@ individual values and merges them back together into the correct order.
 Insertion sorting is fully implemented and tested. This method temporarily saves a value and then
 moves that value behind all values larger than it (Therefore shifting those larger values forwards).
 This method will then do the same with the next value until the entire array is sorted.
+
+### Pancake Sort
+Pancake sorting is fully implemented and tested. This method flips entire sections of the array 
+until the entire array is in order. It starts at the largest value, and works down.
 
 ## Swing
 The front-end of this application is made using Swing. This was my first time using it, so I definitely 
