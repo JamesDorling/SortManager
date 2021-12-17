@@ -16,8 +16,9 @@ public class SwingSortButtons {
         JButton tree_button = new JButton("Tree");
         JButton merge_button = new JButton("Merge");
         JButton insert_button = new JButton("Insert");
+        JButton pancake_button = new JButton("Pancake");
         //Configure and add each button
-        addSortButtons(new JButton[]{bubble_button, tree_button, merge_button, insert_button}, window, constraints);
+        addSortButtons(new JButton[]{bubble_button, tree_button, merge_button, insert_button, pancake_button}, window, constraints);
     }
 
     private static void addSortButtons(JButton[] buttonsToAdd, JFrame window, GridBagConstraints constraints) {
